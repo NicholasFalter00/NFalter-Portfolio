@@ -1,0 +1,131 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<style>
+    body {
+        background-image: url("Images/Background.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    img {
+        max-height: 450px;
+        max-width: 450px;
+        border-radius: 150px;
+        padding: 20px;
+    }
+
+    h1 {
+        color:dodgerblue;
+    }
+
+    h2 {
+        color: black;
+    }
+
+    .card {
+        background-color: rgba(169,169,169,0.75);
+        margin: 10px 0px;
+        background-clip: content-box;
+    }
+
+    .locked {
+        position: fixed;
+        -webkit-transform: translateZ(0);
+        vertical-align: top;
+    }
+
+    .columntwo {
+        float: right;
+        padding-left: 33%;
+    }
+
+    .icon {
+        /*font-size: 0.2em !important;*/
+        max-height: 4.5em !important;
+        max-width: 4.5em !important;
+        padding-right: 0.5em;
+        color: black !important;
+    }
+</style>
+<div class="col-4 text locked">
+    <img src="Images/Nicholas.jpg" />
+    <br />
+    <div>
+        <p>
+            <a href="mailto:nicholasafalter@gmail.com">
+                <img src="/Images/Email-Icon5.png" class="icon" />nicholasafalter@gmail.com
+            </a>
+            <br />
+            <img src="Images/Phone-Icon.png" class="icon" />360-269-2084
+        </p>
+    </div>
+</div>
+<div class="text-center text">
+    <!--<h1 class="display-4">Nicholas Falter</h1>-->
+    <h2 style="padding-left: 4em">Hello! I am <b style="color:dodgerblue">Nicholas Falter</b> a fullstack software engineer!</h2>
+    <h3>Welcome to my portfolio!</h3>
+    
+</div>
+
+<div class="row">
+    <div class="text col-12 columntwo">
+        <div> <!-- Experience -->
+            <h1>Experience</h1>
+            <div class="card">
+                <h2>Software Engineer | Resource Data, Inc.</h2>
+                <p>
+                    Did project work for various companies contracting Resource Data. <br />
+                    <b>Pacific States Marine Fisheries Commission:</b> Implemented new API based data import process
+                    for data warehousing using PL/SQL, added a metadata check to verify the validity of loaded
+                    data, and rollback if needed, added new fields, and transformed the data using views and
+                    merging to meet business requirements.
+                    Created API endpoints for use with new commercial fishing app. API endpoints managed user
+                    account creation, email verification, password and username management, updating account
+                    properties, and submitting and reading vessel and fishing records. <br />
+                    <b>CUI Devices:</b> Created a new application within FreeAgent CRM to track online purchases,
+                    including automatic association/creation of user and purchase information, and setting follow
+                    up reminders. Implemented using JavaScript.<br />
+                    <b>Washington Department of Agriculture:</b> Led client testing, and meetings collecting feedback
+                    on application. Performed application testing, reviewing developer changes, and providing
+                    direction for future development.<br />
+                    <b>Intranet:</b> Between projects developed feature improvements and bug fixes for internal
+                    Resource Data intranet toolsets using .NET Core MVC, ASP.NET, and SSMS.
+                </p>
+            </div>
+            <div class="card">
+                <h2>Software Engineer | Tata Consultancy Services 06/21 - 06/22</h2>
+                <p>
+                    On assignment at CVS Health. Used Scrum development lifecycle to design and execute tests to
+                    ensure programs are defect free. Tracked test cases and defects in Rally and used Control-M to
+                    execute batch programs. Work closely with the development team to ensure comprehensive
+                    testing. Prepared demos of program functionality.
+                </p>
+            </div>
+            <div class="card">
+                <h2>Software Engineer | Tata Consultancy Services 06/21 - 06/22</h2>
+                <p>
+                    On assignment at CVS Health. Used Scrum development lifecycle to design and execute tests to
+                    ensure programs are defect free. Tracked test cases and defects in Rally and used Control-M to
+                    execute batch programs. Work closely with the development team to ensure comprehensive
+                    testing. Prepared demos of program functionality.
+                </p>
+            </div>
+        </div>
+        <h1>Projects</h1>
+        <div class="card">
+            <h2>Network Attached Storage Server | Hobby 07/23 - 08/23</h2>
+            <p>
+                Set up a NAS server. Configured TrueNAS operating system to allow LAN media storage, then
+                setup ZeroTier VPN to enable remote access.
+            </p>
+        </div>
+    </div>
+</div>
+
+
