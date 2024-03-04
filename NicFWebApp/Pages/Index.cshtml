@@ -1,9 +1,10 @@
 ﻿@page
+@using NicFWebApp.Pages.Shared.Classes
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
-
+<!-- Update to pass the experience and projects etc from controller -->
 
 <style>
     body {
@@ -73,31 +74,25 @@
     
 </div>
 
+<h2 class="text-center text">Test data from viewmodel: @ViewData["Title"]</h2>
 <div class="row">
     <div class="text col-12 columntwo">
         <div> <!-- Experience -->
             <h1>Experience</h1>
-            <div class="card">
-                <h2>Software Engineer | Resource Data, Inc.</h2>
-                <p>
-                    Did project work for various companies contracting Resource Data. <br />
-                    <b>Pacific States Marine Fisheries Commission:</b> Implemented new API based data import process
-                    for data warehousing using PL/SQL, added a metadata check to verify the validity of loaded
-                    data, and rollback if needed, added new fields, and transformed the data using views and
-                    merging to meet business requirements.
-                    Created API endpoints for use with new commercial fishing app. API endpoints managed user
-                    account creation, email verification, password and username management, updating account
-                    properties, and submitting and reading vessel and fishing records. <br />
-                    <b>CUI Devices:</b> Created a new application within FreeAgent CRM to track online purchases,
-                    including automatic association/creation of user and purchase information, and setting follow
-                    up reminders. Implemented using JavaScript.<br />
-                    <b>Washington Department of Agriculture:</b> Led client testing, and meetings collecting feedback
-                    on application. Performed application testing, reviewing developer changes, and providing
-                    direction for future development.<br />
-                    <b>Intranet:</b> Between projects developed feature improvements and bug fixes for internal
-                    Resource Data intranet toolsets using .NET Core MVC, ASP.NET, and SSMS.
-                </p>
-            </div>
+            @foreach (Position position in Model.Experience!.Positions!)
+            {
+                <div class="card">
+                    <h2>@position.JobTitle | @position.Company</h2>
+                    <p>
+                        @position.Description
+                        @foreach (Project project in position.Projects!)
+                        {
+                            <br /><b>@project.Title:</b> @project.Description
+                        }
+                    </p>
+                </div>
+            }
+            
             <div class="card">
                 <h2>Software Engineer | Tata Consultancy Services 06/21 - 06/22</h2>
                 <p>
