@@ -15,8 +15,8 @@
     }
 
     img {
-        max-height: 450px;
-        max-width: 450px;
+        max-height: 300px;
+        max-width: 300px;
         border-radius: 150px;
         padding: 20px;
     }
@@ -54,7 +54,7 @@
         color: black !important;
     }
 </style>
-<div class="col-4 text locked">
+<div class="col-3 text locked">
     <img src="Images/Nicholas.jpg" />
     <br />
     <div>
@@ -74,7 +74,6 @@
     
 </div>
 
-<h2 class="text-center text">Test data from viewmodel: @ViewData["Title"]</h2>
 <div class="row">
     <div class="text col-12 columntwo">
         <div> <!-- Experience -->
@@ -82,26 +81,19 @@
             @foreach (Position position in Model.Experience!.Positions!)
             {
                 <div class="card">
-                    <h2>@position.JobTitle | @position.Company</h2>
+                    <h2>@position.JobTitle | @position.Company @String.Format("{0:MM/yy}", position.StartDate)-@String.Format("{0:MM/yy}", position.EndDate)</h2>
                     <p>
                         @position.Description
-                        @foreach (Project project in position.Projects!)
-                        {
-                            <br /><b>@project.Title:</b> @project.Description
+                        @if (position.Projects != null){
+                            foreach (Project project in position.Projects!)
+                            {
+                                <br /><b>@project.Title:</b> @project.Description
+                            }
                         }
                     </p>
                 </div>
             }
             
-            <div class="card">
-                <h2>Software Engineer | Tata Consultancy Services 06/21 - 06/22</h2>
-                <p>
-                    On assignment at CVS Health. Used Scrum development lifecycle to design and execute tests to
-                    ensure programs are defect free. Tracked test cases and defects in Rally and used Control-M to
-                    execute batch programs. Work closely with the development team to ensure comprehensive
-                    testing. Prepared demos of program functionality.
-                </p>
-            </div>
             <div class="card">
                 <h2>Software Engineer | Tata Consultancy Services 06/21 - 06/22</h2>
                 <p>

@@ -18,27 +18,37 @@ namespace NicFWebApp.Pages
 
         public void OnGet()
         {
-            var position = new Position
+            var resourceData = new Position
             {
                 JobTitle = "Software Engineer",
                 Company = "ResourceData, Inc.",
+                StartDate = new DateTime(2021, 6, 1),
+                EndDate = new DateTime(2022, 6, 1),
                 Description = "Did project work for various companies contracting Resource Data.",
                 Projects = new List<Project>
                 {
                     new Project
                     {
                         Title = "Pacific States Marine Fisheries Commission",
-                        Description = "Implemented new API based data import process for data warehousing using PL/SQL, added a metadata check to verify the validity of loaded data, and rollback if needed, added new fields, and transformed the data using views and merging to meet business requirements. Created API endpoints for use with new commercial fishing app. API endpoints managed user account creation, email verification, password and username management, updating account properties, and submitting and reading vessel and fishing records.",
+                        Description = "Implemented new API based data import process for data warehousing using PL/SQL, added a" +
+                            " metadata check to verify the validity of loaded data, and rollback if needed, added new fields," +
+                            " and transformed the data using views and merging to meet business requirements. " +
+                            "Created API endpoints for use with new commercial fishing app. API endpoints managed user account creation, " +
+                            "email verification, password and username management, updating account properties, and submitting" +
+                            " and reading vessel and fishing records.",
                     },
                     new Project 
                     {
                         Title = "CUI Devices",
-                        Description = "Created a new application within FreeAgent CRM to track online purchases, including automatic association/creation of user and purchase information, and setting follow up reminders. Implemented using JavaScript.",
+                        Description = "Created a new application within FreeAgent CRM to track online purchases," +
+                            " including automatic association/creation of user and purchase information," +
+                            " and setting follow up reminders. Implemented using JavaScript.",
                     },
                     new Project
                     {
                         Title = "Washington Department of Agriculture",
-                        Description = "Led client testing, and meetings collecting feedback on application. Performed application testing, reviewing developer changes, and providing direction for future development.",
+                        Description = "Led client testing, and meetings collecting feedback on application." +
+                            " Performed application testing, reviewing developer changes, and providing direction for future development.",
                     },
                     new Project
                     {
@@ -47,11 +57,25 @@ namespace NicFWebApp.Pages
                     },
                 }
             };
+
+            var tataConsultancy = new Position
+            {
+                JobTitle = "Software Engineer",
+                Company = "Tata Consultancy Services",
+                StartDate = new DateTime(2022, 6, 1),
+                EndDate = DateTime.Now,
+                Description = "On assignment at CVS Health. Used Scrum development lifecycle to design and execute tests to " +
+                    "ensure programs are defect free. Tracked test cases and defects in Rally and used Control-M to " +
+                    "execute batch programs. Work closely with the development team to ensure comprehensive " +
+                    "testing. Prepared demos of program functionality. ",
+            };
+
             Experience = new Experience
             {
                 Positions = new List<Position>(),
             };
-            Experience!.Positions!.Add(position);
+            Experience!.Positions!.Add(resourceData);
+            Experience!.Positions!.Add(tataConsultancy);
         }
     }
 }
