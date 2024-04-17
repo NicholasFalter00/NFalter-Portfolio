@@ -14,18 +14,11 @@
         background-size: cover;
     }
 
-    img {
-        max-height: 300px;
-        max-width: 300px;
-        border-radius: 150px;
-        padding: 20px;
-    }
-
-    h1 {
+    h2 {
         color:dodgerblue;
     }
 
-    h2 {
+    h3 {
         color: black;
     }
 
@@ -41,78 +34,97 @@
         vertical-align: top;
     }
 
-    .columntwo {
-        float: right;
-        padding-left: 33%;
+    .portrait {
+        width: 100%;
+        border-radius: 150px;
+        margin-top: 25px !important;
+        display: block;
     }
 
     .icon {
-        /*font-size: 0.2em !important;*/
-        max-height: 4.5em !important;
-        max-width: 4.5em !important;
-        padding-right: 0.5em;
-        color: black !important;
+        margin: 3px;
+        margin-right: 2px;
+        max-height: 1.5em !important;
+        max-width: 1.5em !important;
+        color: white !important;
     }
-</style>
-<div class="col-3 text locked">
-    <img src="Images/Nicholas.jpg" />
-    <br />
-    <div>
-        <p>
-            <a href="mailto:nicholasafalter@gmail.com">
-                <img src="/Images/Email-Icon5.png" class="icon" />nicholasafalter@gmail.com
-            </a>
-            <br />
-            <img src="Images/Phone-Icon.png" class="icon" />360-269-2084
-        </p>
-    </div>
-</div>
-<div class="text-center text">
-    <!--<h1 class="display-4">Nicholas Falter</h1>-->
-    <h2 style="padding-left: 4em">Hello! I am <b style="color:dodgerblue">Nicholas Falter</b> a fullstack software engineer!</h2>
-    <h3>Welcome to my portfolio!</h3>
-    
-</div>
 
-<div class="row">
-    <div class="text col-12 columntwo">
-        <div> <!-- Experience -->
-            <h1>Experience</h1>
-            @foreach (Position position in Model.Experience!.Positions!)
-            {
+    .sidebar {
+        height: 100vh;
+        max-width: 200px;
+        background-color: #212529; /* Black */
+    }
+
+    .contact-info {
+        color: white;
+        font-size: 0.75em;
+    }
+
+    .centered-text {
+        color: white;
+        text-align: center;
+    }
+
+</style>
+<html>
+    <head>
+        <title>Nicholas Falter Portfolio</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <!--<link rel="stylesheet" href="./styles.css">-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4 sidebar">
+                <img src="Images/Nicholas.jpg" class="portrait" />
+                <div class="centered-text">Hello! I am Nicholas Falter! Welcome to my portfolio!</div>
+                <div>
+                    <div class="contact-info mt-2">
+                        <a class="d-flex" href="mailto:nicholasafalter@gmail.com">
+                            <img src="/Images/Email-Icon5.png" class="icon" />nicholasafalter@gmail.com
+                        </a>
+                        <div class="d-flex"><img src="Images/Phone-Icon.png" class="icon" />360-269-2084</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div> <!-- Experience -->
+                    <h2>Experience</h2>
+                    @foreach (Position position in Model.Experience!.Positions!)
+                    {
+                        <div class="card">
+                            <h3>@position.JobTitle | @position.Company @String.Format("{0:MM/yy}", position.StartDate)-@String.Format("{0:MM/yy}", position.EndDate)</h3>
+                            <p>
+                                @position.Description
+                                @if (position.Projects != null){
+                                    foreach (Project project in position.Projects!)
+                                    {
+                                        <br /><b>@project.Title:</b> @project.Description
+                                    }
+                                }
+                            </p>
+                        </div>
+                    }
+            
+                    <div class="card">
+                        <h3>Software Engineer | Tata Consultancy Services 06/21 - 06/22</h3>
+                        <p>
+                            On assignment at CVS Health. Used Scrum development lifecycle to design and execute tests to
+                            ensure programs are defect free. Tracked test cases and defects in Rally and used Control-M to
+                            execute batch programs. Work closely with the development team to ensure comprehensive
+                            testing. Prepared demos of program functionality.
+                        </p>
+                    </div>
+                </div>
+                <h2>Projects</h2>
                 <div class="card">
-                    <h2>@position.JobTitle | @position.Company @String.Format("{0:MM/yy}", position.StartDate)-@String.Format("{0:MM/yy}", position.EndDate)</h2>
+                    <h3>Network Attached Storage Server | Hobby 07/23 - 08/23</h3>
                     <p>
-                        @position.Description
-                        @if (position.Projects != null){
-                            foreach (Project project in position.Projects!)
-                            {
-                                <br /><b>@project.Title:</b> @project.Description
-                            }
-                        }
+                        Set up a NAS server. Configured TrueNAS operating system to allow LAN media storage, then
+                        setup ZeroTier VPN to enable remote access.
                     </p>
                 </div>
-            }
-            
-            <div class="card">
-                <h2>Software Engineer | Tata Consultancy Services 06/21 - 06/22</h2>
-                <p>
-                    On assignment at CVS Health. Used Scrum development lifecycle to design and execute tests to
-                    ensure programs are defect free. Tracked test cases and defects in Rally and used Control-M to
-                    execute batch programs. Work closely with the development team to ensure comprehensive
-                    testing. Prepared demos of program functionality.
-                </p>
             </div>
         </div>
-        <h1>Projects</h1>
-        <div class="card">
-            <h2>Network Attached Storage Server | Hobby 07/23 - 08/23</h2>
-            <p>
-                Set up a NAS server. Configured TrueNAS operating system to allow LAN media storage, then
-                setup ZeroTier VPN to enable remote access.
-            </p>
-        </div>
     </div>
-</div>
-
-
+</html>
