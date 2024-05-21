@@ -24,8 +24,15 @@
 
     .card {
         background-color: rgba(169,169,169,0.75);
-        margin: 10px 0px;
+        /*margin: 10px 0px;*/
+        margin: 2px;
+        /*padding: 10px;*/
+        /*outline: 10px rgba(169,169,169,0.75) solid;*/
         background-clip: content-box;
+    }
+
+    .card-text{
+        padding: 5px;
     }
 
     .locked {
@@ -90,40 +97,43 @@
             <div class="col-8">
                 <div> <!-- Experience -->
                     <h2>Experience</h2>
-                    @foreach (Position position in Model.Experience!.Positions!)
+                    @foreach (Experience position in Model.EmploymentHistory!)
                     {
                         <div class="card">
-                            <h3>@position.JobTitle | @position.Company @String.Format("{0:MM/yy}", position.StartDate)-@String.Format("{0:MM/yy}", position.EndDate)</h3>
+                            <div class="card-text">
+                            <h3>@position.JobTitle | @position.Company @String.Format("{0:MM/yy}", position.StartDate)-@(position.EndDate.Date == DateTime.Now.Date ? "Present" : @String.Format("{0:MM/yy}", position.EndDate))</h3>
+                                <p>
+                                    @position.Description
+                                    @if (position.Tasks != null){
+                                        foreach (Shared.Classes.Task task in position.Tasks!)
+                                        {
+                                            <br /><b>@task.Title:</b> @task.Description
+                                        }
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <h2>Projects</h2>
+                @foreach (Experience project in Model.Projects!)
+                {
+                    <div class="card">
+                        <div class="card-text">
+                        <h3>@project.JobTitle | @project.Company @String.Format("{0:MM/yy}", project.StartDate)-@(project.EndDate.Date == DateTime.Now.Date ? "Present" : @String.Format("{0:MM/yy}", project.EndDate))</h3>
                             <p>
-                                @position.Description
-                                @if (position.Projects != null){
-                                    foreach (Project project in position.Projects!)
+                                @project.Description
+                                @if (project.Tasks != null)
+                                {
+                                foreach (Shared.Classes.Task task in project.Tasks!)
                                     {
-                                        <br /><b>@project.Title:</b> @project.Description
+                                        <br /><b>@task.Title:</b> @task.Description
                                     }
                                 }
                             </p>
                         </div>
-                    }
-            
-                    <div class="card">
-                        <h3>Software Engineer | Tata Consultancy Services 06/21 - 06/22</h3>
-                        <p>
-                            On assignment at CVS Health. Used Scrum development lifecycle to design and execute tests to
-                            ensure programs are defect free. Tracked test cases and defects in Rally and used Control-M to
-                            execute batch programs. Work closely with the development team to ensure comprehensive
-                            testing. Prepared demos of program functionality.
-                        </p>
                     </div>
-                </div>
-                <h2>Projects</h2>
-                <div class="card">
-                    <h3>Network Attached Storage Server | Hobby 07/23 - 08/23</h3>
-                    <p>
-                        Set up a NAS server. Configured TrueNAS operating system to allow LAN media storage, then
-                        setup ZeroTier VPN to enable remote access.
-                    </p>
-                </div>
+                }
             </div>
         </div>
     </div>

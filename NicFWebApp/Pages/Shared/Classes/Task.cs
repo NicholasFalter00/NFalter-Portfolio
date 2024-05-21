@@ -1,6 +1,6 @@
 ﻿namespace NicFWebApp.Pages.Shared.Classes
 {
-    public class Project
+    public class Task
     {
         public string? Title { get; set; }
         public string? Description { get; set; }
