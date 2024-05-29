@@ -4,134 +4,58 @@
 @{
     ViewData["Title"] = "Home page";
 }
-<!-- Update to pass the experience and projects etc from controller -->
 
-<style>
-    body {
-        background-image: url("Images/Background.jpg");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-    }
-
-    h2 {
-        color:dodgerblue;
-    }
-
-    h3 {
-        color: black;
-    }
-
-    .card {
-        background-color: rgba(169,169,169,0.75);
-        margin: 2px;
-        background-clip: content-box;
-    }
-
-    .card-text{
-        padding: 5px;
-    }
-
-    .locked {
-        position: fixed;
-        -webkit-transform: translateZ(0);
-        vertical-align: top;
-    }
-
-    .portrait {
-        width: 100%;
-        border-radius: 150px;
-        margin-top: 25px !important;
-        display: block;
-    }
-
-    .icon {
-        margin: 3px;
-        margin-right: 2px;
-        max-height: 1.5em !important;
-        max-width: 1.5em !important;
-        color: white !important;
-    }
-
-    .sidebar {
-        height: 100vh;
-        max-width: 200px;
-        background-color: #212529; /* Black */
-    }
-
-    .contact-info {
-        color: white;
-        font-size: 0.75em;
-    }
-
-    .centered-text {
-        color: white;
-        text-align: center;
-    }
-
-</style>
-<html>
-    <head>
-        <title>Nicholas Falter Portfolio</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <!--<link rel="stylesheet" href="./styles.css">-->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-4 sidebar">
-                <img src="Images/Nicholas.jpg" class="portrait" />
-                <div class="centered-text">Hello! I am Nicholas Falter! Welcome to my portfolio!</div>
-                <div>
-                    <div class="contact-info mt-2">
-                        <a class="d-flex" href="mailto:nicholasafalter@gmail.com">
-                            <img src="/Images/Email-Icon5.png" class="icon" />nicholasafalter@gmail.com
-                        </a>
-                        <div class="d-flex"><img src="Images/Phone-Icon.png" class="icon" />360-269-2084</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-8">
-                <div> <!-- Experience -->
-                    <h2>Experience</h2>
-                    @foreach (Experience position in Model.EmploymentHistory!)
-                    {
-                        <div class="card">
-                            <div class="card-text">
-                            <h3>@position.JobTitle | @position.Company @String.Format("{0:MM/yy}", position.StartDate)-@(position.EndDate.Date == DateTime.Now.Date ? "Present" : @String.Format("{0:MM/yy}", position.EndDate))</h3>
-                                <p>
-                                    @position.Description
-                                    @if (position.Tasks != null){
-                                        foreach (Shared.Classes.Task task in position.Tasks!)
-                                        {
-                                            <br /><b>@task.Title:</b> @task.Description
-                                        }
-                                    }
-                                </p>
-                            </div>
-                        </div>
-                    }
-                </div>
-                <h2>Projects</h2>
-                @foreach (Experience project in Model.Projects!)
-                {
-                    <div class="card">
-                        <div class="card-text">
-                        <h3>@project.JobTitle | @project.Company @String.Format("{0:MM/yy}", project.StartDate)-@(project.EndDate.Date == DateTime.Now.Date ? "Present" : @String.Format("{0:MM/yy}", project.EndDate))</h3>
-                            <p>
-                                @project.Description
-                                @if (project.Tasks != null)
-                                {
-                                foreach (Shared.Classes.Task task in project.Tasks!)
-                                    {
-                                        <br /><b>@task.Title:</b> @task.Description
-                                    }
-                                }
-                            </p>
-                        </div>
-                    </div>
-                }
+<div class="row">
+    <div class="col-4 sidebar">
+        <img src="Images/Nicholas.jpg" class="portrait" />
+        <div class="centered-text">Hello! I am Nicholas Falter! Welcome to my portfolio!</div>
+        <div>
+            <div class="contact-info mt-2">
+                <a class="d-flex" href="mailto:nicholasafalter@gmail.com">
+                    <img src="/Images/Email-Icon5.png" class="icon" />nicholasafalter@gmail.com
+                </a>
+                <div class="d-flex"><img src="Images/Phone-Icon.png" class="icon" />360-269-2084</div>
             </div>
         </div>
     </div>
-</html>
+    <div class="col-8">
+        <h2>Experience</h2>
+        @foreach (Experience position in Model.EmploymentHistory!)
+        {
+            <div class="card">
+                <div class="card-text">
+                <h3>@position.JobTitle | @position.Company @String.Format("{0:MM/yy}", position.StartDate)-@(position.EndDate.Date == DateTime.Now.Date ? "Present" : @String.Format("{0:MM/yy}", position.EndDate))</h3>
+                    <p>
+                        @position.Description
+                        @if (position.Tasks != null)
+                        {
+                            foreach (Shared.Classes.Task task in position.Tasks!)
+                            {
+                                <br /><b>@task.Title:</b> @task.Description
+                            }
+                        }
+                    </p>
+                </div>
+            </div>
+        }
+        <h2>Projects</h2>
+        @foreach (Experience project in Model.Projects!)
+        {
+            <div class="card">
+                <div class="card-text">
+                <h3>@project.JobTitle | @project.Company @String.Format("{0:MM/yy}", project.StartDate)-@(project.EndDate.Date == DateTime.Now.Date ? "Present" : @String.Format("{0:MM/yy}", project.EndDate))</h3>
+                    <p>
+                        @project.Description
+                        @if (project.Tasks != null)
+                        {
+                        foreach (Shared.Classes.Task task in project.Tasks!)
+                            {
+                                <br /><b>@task.Title:</b> @task.Description
+                            }
+                        }
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -18,10 +18,60 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-image: url("/Images/Background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .icon {
-    max-height: 450px;
-    max-width: 450px;
+    margin: 3px;
+    margin-right: 2px;
+    max-height: 1.5em !important;
+    max-width: 1.5em !important;
+    color: white !important;
+}
+
+h2, h3 {
+    color: black;
+}
+
+.card {
+    background-color: rgba(169,169,169,0.75);
+    margin: 2px;
+    background-clip: content-box;
+}
+
+.card-text {
+    padding: 5px;
+}
+
+.locked {
+    position: fixed;
+    -webkit-transform: translateZ(0);
+    vertical-align: top;
+}
+
+.portrait {
+    width: 100%;
+    border-radius: 150px;
+    margin-top: 25px !important;
+    display: block;
+}
+
+.sidebar {
+    height: auto;
+    max-width: 200px;
+    background-color: #212529; /* Black */
+}
+
+.contact-info {
+    color: white;
+    font-size: 0.75em;
+}
+
+.centered-text {
+    color: white;
+    text-align: center;
 }
