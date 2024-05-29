@@ -61,7 +61,7 @@ h2, h3 {
 .portrait {
     width: 100%;
     border-radius: 150px;
-    margin-top: 25px !important;
+    padding: calc(var(--bs-gutter-x) * .5) 0px 0px calc(var(--bs-gutter-x) * .5);
     display: block;
 }
 
