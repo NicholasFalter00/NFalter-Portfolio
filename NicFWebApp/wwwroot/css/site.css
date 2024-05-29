@@ -61,13 +61,13 @@ h2, h3 {
 .portrait {
     width: 100%;
     border-radius: 150px;
-    padding: calc(var(--bs-gutter-x) * .5) 0px 0px calc(var(--bs-gutter-x) * .5);
+    padding-top: 1em;
     display: block;
 }
 
 .sidebar {
     height: auto;
-    max-width: 200px;
+    max-width: 200px; /* TODO: this is causing the sizing issues, with the bootstrap columns not taking the full screen. look into: https://www.geeksforgeeks.org/how-to-create-a-responsive-sidebar-in-bootstrap-5/# to find better way*/
     background-color: #212529; /* Black */
 }
 
