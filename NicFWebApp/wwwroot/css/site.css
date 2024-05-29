@@ -37,6 +37,11 @@ h2, h3 {
     color: black;
 }
 
+.card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
 .card {
     background-color: rgba(169,169,169,0.75);
     margin: 2px;
