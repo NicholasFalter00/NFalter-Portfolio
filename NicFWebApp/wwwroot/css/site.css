@@ -26,8 +26,6 @@ body {
 }
 
 .icon {
-    margin: 3px;
-    margin-right: 2px;
     max-height: 1.5em !important;
     max-width: 1.5em !important;
     color: white !important;
@@ -44,12 +42,7 @@ h2, h3 {
 
 .card {
     background-color: rgba(169,169,169,0.75);
-    margin: 2px;
     background-clip: content-box;
-}
-
-.card-text {
-    padding: 5px;
 }
 
 .locked {
@@ -61,7 +54,6 @@ h2, h3 {
 .portrait {
     width: 100%;
     border-radius: 150px;
-    padding-top: 1em;
     display: block;
 }
 
