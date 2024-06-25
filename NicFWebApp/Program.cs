@@ -1,7 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using NicFWebApp.Pages.Shared.Classes;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<SqliteContext>(options => options.UseSqlite(
+    builder.Configuration.GetConnectionString("localDb")));
 
 var app = builder.Build();
 

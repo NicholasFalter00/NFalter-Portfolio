@@ -29,19 +29,17 @@
                         <div class="card-header">
                             <h3>@position.JobTitle | @position.Company</h3>
                             <h4>
-                                @String.Format("{0:MM/yyyy}", position.StartDate)-@(position.EndDate.Date == DateTime.Now.Date ? "Present" : @String.Format("{0:MM/yyyy}", position.EndDate))
+                                @position.StartDate-@position.EndDate
                             </h4>
                         </div>
-                        <p>
-                            @position.Description
-                            @if (position.Tasks != null)
+                        @position.Description
+                        @if (position.Tasks != null)
+                        {
+                            foreach (Shared.Classes.Task task in position.Tasks!)
                             {
-                                foreach (Shared.Classes.Task task in position.Tasks!)
-                                {
-                                    <br /><b>@task.Title:</b> @task.Description
-                                }
+                                <br /><b>@task.Title:</b> @task.Description
                             }
-                        </p>
+                        }
                     </div>
                 </div>
             }
@@ -53,19 +51,17 @@
                         <div class="card-header">
                             <h3>@project.JobTitle | @project.Company</h3>
                             <h4>
-                                @String.Format("{0:MM/yyyy}", project.StartDate)-@(project.EndDate.Date == DateTime.Now.Date ? "Present" : @String.Format("{0:MM/yyyy}", project.EndDate))
+                                @project.StartDate-@project.EndDate
                             </h4>
                         </div>
-                        <p>
-                            @project.Description
-                            @if (project.Tasks != null)
+                        @project.Description
+                        @if (project.Tasks != null)
+                        {
+                        foreach (Shared.Classes.Task task in project.Tasks!)
                             {
-                            foreach (Shared.Classes.Task task in project.Tasks!)
-                                {
-                                    <br /><b>@task.Title:</b> @task.Description
-                                }
+                                <br /><b>@task.Title:</b> @task.Description
                             }
-                        </p>
+                        }
                     </div>
                 </div>
             }
