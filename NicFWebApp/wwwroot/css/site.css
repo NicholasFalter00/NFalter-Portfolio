@@ -71,3 +71,7 @@ h2, h3 {
     color: white;
     text-align: center;
 }
+
+.small-font {
+    font-size: 0.75em;
+}
