@@ -62,16 +62,23 @@ h2, h3 {
     background-color: #212529; /* Black */
 }
 
-.contact-info {
-    color: white;
-    font-size: 0.75em;
-}
-
-.centered-text {
-    color: white;
-    text-align: center;
-}
-
 .small-font {
     font-size: 0.75em;
+}
+
+.extra-small-font {
+    font-size: 0.6em;
+}
+
+.grey {
+    color: lightgrey;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.star {
+    max-height: 5em !important;
+    max-width: 5em !important;
 }

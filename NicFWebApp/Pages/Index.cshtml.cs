@@ -34,7 +34,7 @@ namespace NicFWebApp.Pages
             Projects = FormatDate(Projects);
         }
 
-        private List<Experience> FormatDate(List<Experience> experiences)
+        private static List<Experience> FormatDate(List<Experience> experiences)
         {
             foreach (var experience in experiences)
             {
