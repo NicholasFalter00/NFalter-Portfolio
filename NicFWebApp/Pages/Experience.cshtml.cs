@@ -1,14 +1,12 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using NicFWebApp.Pages.Shared.Classes;
-using System.Reflection;
 
 namespace NicFWebApp.Pages
 {
-    public class IndexModel : PageModel
+    public class ExperienceModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ILogger<ExperienceModel> _logger;
 
         private readonly SqliteContext _context;
 
@@ -16,7 +14,7 @@ namespace NicFWebApp.Pages
 
         public List<Experience> Projects { get; set; } = new List<Experience>();
 
-        public IndexModel(ILogger<IndexModel> logger, SqliteContext context)
+        public ExperienceModel(ILogger<ExperienceModel> logger, SqliteContext context)
         {
             _logger = logger;
             _context = context;

@@ -10,5 +10,7 @@ namespace NicFWebApp.Pages.Shared.Classes
 
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<SkillLevel> LookupSkillLevels { get; set; }
     }
 }

@@ -27,4 +27,6 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+app.MapFallbackToPage("/Experience");
+
 app.Run();

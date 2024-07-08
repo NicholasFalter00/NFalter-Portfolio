@@ -1,0 +1,54 @@
+﻿@page
+@using NicFWebApp.Pages.Shared.Classes
+@model ExperienceModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<h2>Experience</h2>
+@foreach (Experience position in Model.EmploymentHistory!)
+{
+    <div class="card m-1">
+        <div class="p-2">
+            <div class="card-header">
+                <h3>@position.JobTitle | @position.Company</h3>
+                <h4>
+                    @position.StartDate-@position.EndDate
+                </h4>
+            </div>
+            @position.Description
+            @if (position.Tasks != null)
+            {
+                foreach (Shared.Classes.Task task in position.Tasks!)
+                {
+                    <br />
+
+                    <b>@task.Title:</b> @task.Description
+                }
+            }
+        </div>
+    </div>
+}
+<h2>Projects</h2>
+@foreach (Experience project in Model.Projects!)
+{
+    <div class="card m-1">
+        <div class="p-2">
+            <div class="card-header">
+                <h3>@project.JobTitle | @project.Company</h3>
+                <h4>
+                    @project.StartDate-@project.EndDate
+                </h4>
+            </div>
+            @project.Description
+            @if (project.Tasks != null)
+            {
+                foreach (Shared.Classes.Task task in project.Tasks!)
+                {
+                    <br />
+
+                    <b>@task.Title:</b> @task.Description
+                }
+            }
+        </div>
+    </div>
+}
