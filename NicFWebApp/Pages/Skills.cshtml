@@ -4,42 +4,45 @@
 @{
     ViewData["Title"] = "Skills/Education";
 }
-<div class="container center-div">
-    <span class="card m-1 d-inline-block">
-        <div class="p-2">
-            <div class="text-center">
-                <h4>Education</h4>
-                <div>
-                    <b>B.S. Computer Engineering & Systems</b>
-                </div>
-                University of Washington
-            </div>
-        </div>
-    </span>
-</div>
 
-<div class="container center-div">
-    <span class="card m-1 d-inline-block">
-        <div class="text-center">
-            <h4>SKILLS</h4>
-        </div>
-        <div class="container mb-1">
-            <div class="row">
-            @foreach (Skill skill in Model.Skills!)
-            {
-                <div class="col-md-4 text-center">
-                    <div class="full-width">
-                        @skill.SkillName
-                        @skill.SkillLevel.SkillLevelName
-                        @{
-                            var base64 = Convert.ToBase64String(@skill.SkillLevel.Graphic);
-                            var Image = String.Format("data:image/png;base64,{0}", base64);
-                        }
-                        <img src="@Image" alt="" class="star">
+<div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
+    <div class="container center-div">
+        <span class="card m-1 d-inline-block">
+            <div class="p-2">
+                <div class="text-center">
+                    <h4>Education</h4>
+                    <div>
+                        <b>B.S. Computer Engineering & Systems</b>
                     </div>
+                    University of Washington
                 </div>
-            }
             </div>
-        </div>
-    </span>
+        </span>
+    </div>
+
+    <div class="container center-div">
+        <span class="card m-1 d-inline-block">
+            <div class="text-center">
+                <h4>SKILLS</h4>
+            </div>
+            <div class="container mb-1">
+                <div class="row">
+                @foreach (Skill skill in Model.Skills!)
+                {
+                    <div class="col-md-4 text-center">
+                        <div class="full-width">
+                            @skill.SkillName
+                            @skill.SkillLevel.SkillLevelName
+                            @{
+                                var base64 = Convert.ToBase64String(@skill.SkillLevel.Graphic);
+                                var Image = String.Format("data:image/png;base64,{0}", base64);
+                            }
+                            <img src="@Image" alt="" class="star">
+                        </div>
+                    </div>
+                }
+                </div>
+            </div>
+        </span>
+    </div>
 </div>
