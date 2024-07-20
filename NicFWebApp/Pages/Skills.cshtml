@@ -3,6 +3,7 @@
 @model SkillModel
 @{
     ViewData["Title"] = "Skills/Education";
+    var columnCounter = 3;
 }
 
 <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
@@ -26,22 +27,34 @@
                 <h4>SKILLS</h4>
             </div>
             <div class="container mb-1">
-                <div class="row">
-                @foreach (Skill skill in Model.Skills!)
-                {
-                    <div class="col-md-4 text-center">
-                        <div class="full-width">
-                            @skill.SkillName
-                            @skill.SkillLevel.SkillLevelName
-                            @{
-                                var base64 = Convert.ToBase64String(@skill.SkillLevel.Graphic);
-                                var Image = String.Format("data:image/png;base64,{0}", base64);
+                <table>
+                    @for(int i = 0; i < Model.Skills.Count;)
+                    {
+                        <tr>
+                            @for (int j = 0; j < columnCounter; j++)
+                            {
+                                @if (i < Model.Skills.Count)
+                                {
+                                    <td class="ps-3">
+                                        @Model.Skills[i].SkillName
+                                    </td>
+                                    <td>
+                                        @Model.Skills[i].SkillLevel.SkillLevelName
+                                    </td>
+                                    <td class="pe-3">
+                                        @{
+                                            var base64 = Convert.ToBase64String(@Model.Skills[i].SkillLevel.Graphic);
+                                            var Image = String.Format("data:image/png;base64,{0}", base64);
+                                        }
+                                        <img src="@Image" alt="" class="star">
+                                    </td>
+                                    i++;
+                                }
                             }
-                            <img src="@Image" alt="" class="star">
-                        </div>
-                    </div>
-                }
-                </div>
+                            
+                        </tr>
+                    }
+                </table>
             </div>
         </span>
     </div>

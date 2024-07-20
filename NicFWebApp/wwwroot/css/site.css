@@ -88,3 +88,7 @@ h2, h3 {
     justify-content: center;
     align-content: center;
 }
+
+td, th {
+    text-align: center;
+}
